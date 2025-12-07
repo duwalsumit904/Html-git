@@ -94,6 +94,21 @@
             transform: scale(1.1);
             box-shadow: 0 0 20px #1affc6;
         }
+
+        /* Man walking animation */
+        .man {
+            font-size: 65px;
+            position: absolute;
+            bottom: 40px;
+            left: -100px;
+            animation: walk 8s linear infinite;
+        }
+
+        @keyframes walk {
+            0% { transform: translateX(-150px); }
+            50% { transform: translateX(100vw); }
+            100% { transform: translateX(-150px); }
+        }
     </style>
 </head>
 
@@ -104,14 +119,12 @@
         <p>Smooth animations ✨ Internal CSS 🎨 Clean UI ⚡</p>
     </header>
 
-    <div class="cards">
-        <div class="card">✨ Smooth animations using CSS</div>
-        <div class="card">⚡ Interactive button using JS</div>
-        <div class="card">🎨 Glassmorphism design</div>
-    </div>
-  
+
 
     <div class="btn" id="magicBtn">Click Me</div>
+
+    <!-- MOVING MAN -->
+    <div class="man">🚶‍♂️</div>
 
     <!-- JAVASCRIPT -->
     <script>
