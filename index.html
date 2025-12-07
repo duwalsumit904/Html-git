@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Web Page</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0f24;
+            font-family: "Poppins", sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        h1 {
+            font-size: 50px;
+            background: linear-gradient(45deg, #00d0ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            margin-top: -10px;
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* Cards section */
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: 260px;
+            height: 170px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 25px rgba(0, 255, 200, 0.2);
+            transition: 0.3s;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 35px rgba(0, 255, 200, 0.35);
+        }
+
+        /* Button */
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 40px auto;
+            padding: 15px;
+            font-size: 18px;
+            text-align: center;
+            background: linear-gradient(45deg, #1affc6, #00aaff);
+            color: black;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #1affc6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to My Animated Page</h1>
+        <p>Smooth animations ✨ Internal CSS 🎨 Clean UI ⚡</p>
+    </header>
+
+    <div class="cards">
+        <div class="card">✨ Smooth animations using CSS</div>
+        <div class="card">⚡ Interactive button using JS</div>
+        <div class="card">🎨 Glassmorphism design</div>
+    </div>
+
+    <div class="btn" id="magicBtn">Click Me</div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.getElementById("magicBtn").addEventListener("click", () => {
+            alert("✨ You clicked the animated button!");
+            document.body.style.background = 
+                "linear-gradient(120deg, #000428, #004e92)";
+        });
+    </script>
+
+</body>
+</html>
