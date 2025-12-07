@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,6 @@
             overflow-x: hidden;
         }
 
-        /* Container */
         .container {
             width: 90%;
             max-width: 450px;
@@ -36,7 +36,6 @@
             font-size: 32px;
         }
 
-        /* Fade-in animation */
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
@@ -70,7 +69,6 @@
             height: 110px;
         }
 
-        /* Submit button */
         .btn {
             width: 100%;
             padding: 14px;
@@ -90,7 +88,6 @@
             box-shadow: 0 0 20px #1affc6;
         }
 
-        /* Back button */
         .back {
             display: block;
             text-align: center;
@@ -104,6 +101,28 @@
         .back:hover {
             color: #00ff99;
         }
+
+        /* CUSTOM ALERT BOX */
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.08);
+            padding: 25px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 30px rgba(0,255,200,0.4);
+            font-size: 24px;
+            opacity: 0;
+            visibility: hidden;
+            animation: fadeInAlert 0.6s forwards;
+        }
+
+        @keyframes fadeInAlert {
+            from { opacity: 0; transform: translate(-50%, -40%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
     </style>
 </head>
 <body>
@@ -111,7 +130,7 @@
     <div class="container">
         <h2>Contact Form</h2>
 
-        <form>
+        <form onsubmit="showThanks(event)">
             <label>Name:</label>
             <input type="text" placeholder="Enter your name" required>
 
@@ -126,6 +145,27 @@
 
         <a href="index.html" class="back">⬅ Go Back</a>
     </div>
+
+    <!-- CUSTOM ALERT BOX (hidden initially) added -->
+    <div id="alertBox" class="custom-alert">Thanks!</div>
+  <!-- added-->
+    <script>
+        function showThanks(event) {
+            event.preventDefault(); // Stop form from refreshing page
+
+            const alertBox = document.getElementById("alertBox");
+            
+            // Show the custom alert
+            alertBox.style.visibility = "visible";
+            alertBox.style.opacity = "1";
+
+            // Hide after 2 seconds
+            setTimeout(() => {
+                alertBox.style.opacity = "0";
+                alertBox.style.visibility = "hidden";
+            }, 2000);
+        }
+    </script>
 
 </body>
 </html>
